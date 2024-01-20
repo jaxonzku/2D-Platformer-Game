@@ -2,41 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    Animator animator;
-    void Start()
-    {
-        animator=this.GetComponent<Animator>();
-    }
+    public Animator animator;
 
-    // Update is called once per frame
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow)) {
-            animator.SetBool("crouch", true);
-        }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            animator.SetBool("crouch", false);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            animator.SetBool("jump", true);
-        }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            animator.SetBool("jump", false);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            animator.SetFloat("speed", 0.3f);
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            animator.SetFloat("speed", 0.24f);
-        }
+        float speed = Input.GetAxisRaw("Horizontal");
+        Debug.Log("speed"+ speed);
+        Vector3 scale=transform.localScale;
+        animator.SetFloat("speed", Mathf.Abs(speed));
 
+        if (speed < 0)
+        {
+            scale.x = -1f * Mathf.Abs(scale.x);
+        }
+        else if (speed>0){
+            scale.x=Mathf.Abs(scale.x);
+        }
+        transform.localScale = scale;
     }
 }
