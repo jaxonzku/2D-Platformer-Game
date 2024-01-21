@@ -7,11 +7,16 @@ public class Player : MonoBehaviour
     public Animator animator;
     private float crouchOffset = 0.5f;
     private float crouchSize = 0.8f;
+    private float jumpOffset = 1.4f;
+    private float jumpSize = 1.1f;
     private BoxCollider2D playerCollider;
+    private BoxCollider2D orginalCollider;
+
     private Vector2 originalSize;
     public float speed;
     private Rigidbody2D rb2d;
     public float jump;
+    private string groundTag = "platform";
 
 
 
@@ -23,7 +28,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerCollider = GetComponent<BoxCollider2D>();
-        originalSize = playerCollider.offset;
+        orginalCollider = playerCollider;
+        Debug.Log(playerCollider.offset.x);
+
     }
 
     void Update()
@@ -55,17 +62,20 @@ public class Player : MonoBehaviour
             playerCollider.size = new Vector2(playerCollider.size.x, crouchSize);
 
         }
-        else if (vertical > 0)
+        else if (vertical > 0 &&IsGrounded())
         {
+
             animator.SetBool("jump", true);
+            playerCollider.offset = new Vector2(playerCollider.offset.x, jumpOffset);
+            playerCollider.size = new Vector2(playerCollider.size.x, jumpSize);
 
         }
         else
         {
             animator.SetBool("crouch", false);
             animator.SetBool("jump", false);
-            playerCollider.offset = new Vector2(playerCollider.offset.x, playerCollider.offset.y);
-            playerCollider.size = new Vector2(playerCollider.size.x, playerCollider.size.y);
+            playerCollider.offset = new Vector2(playerCollider.offset.x, 1.0f);
+            playerCollider.size = new Vector2(playerCollider.size.x, 2.0f);
 
         }
         transform.localScale = scale;
@@ -77,16 +87,30 @@ public class Player : MonoBehaviour
         position.x = position.x + horizontal * speed * Time.deltaTime;
         transform.position=position;
 
-        if(vertical> 0)
+        if(vertical> 0 && IsGrounded())
         {
-            rb2d.AddForce(new Vector2 (0f, jump),ForceMode2D.Force);
+           
+         rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+
+            
         }
 
+    }
 
+    bool IsGrounded()
+    {
+        // Check if the player is grounded based on the tag of the ground objects
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(playerCollider.bounds.center, playerCollider.bounds.size, 0f);
 
-        
-
-
-
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag(groundTag))
+            {
+                Debug.Log("grounded true");
+                return true;
+            }
+        }
+        Debug.Log("grounded false");
+        return false;
     }
 }

@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 276746755}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.537
       objectReference: {fileID: 0}
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6364888890116442444}
   speed: 5
-  jump: 200
+  jump: 50
 --- !u!50 &6364888890116442448
 Rigidbody2D:
   serializedVersion: 4
