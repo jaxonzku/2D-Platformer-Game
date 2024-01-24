@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2d;
     public float jump;
     private string groundTag = "platform";
+    public ScoreController scoreController;
 
 
 
@@ -112,5 +114,11 @@ public class Player : MonoBehaviour
         }
         Debug.Log("grounded false");
         return false;
+    }
+
+    public  void KeyPickUp()
+    {
+        Debug.Log("key picked up");
+        scoreController.IncrementScore(10);
     }
 }
