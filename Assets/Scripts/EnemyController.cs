@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     float walkingDirection = 1.0f;
     Vector2 walkAmount;
     public float walkSpeed = 5f;
-    PlayerDeath playerDeath;
+    public HealthController healthController;
 
     void Start()
     {
@@ -42,8 +42,12 @@ public class EnemyController : MonoBehaviour
 
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            Player player = collision.gameObject.GetComponent<Player>();
-            player.KillPlayer();
+/*            Player player = collision.gameObject.GetComponent<Player>();
+*/            /*player.KillPlayer();*/
+            Debug.Log("enemy hit");
+            healthController.Reducehealth();
+
+
 
 
 
