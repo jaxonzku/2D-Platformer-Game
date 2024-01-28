@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private float wallLeft;
     private float wallRight;
-    float walkingDirection = 1.0f;
+    float walkingDirection;
     Vector2 walkAmount;
     public float walkSpeed = 5f;
     public HealthController healthController;
@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         wallLeft = transform.position.x - 3f;
         wallRight = transform.position.x + 3f;
+        walkingDirection = transform.localScale.x;
     }
     void Update()
     {
