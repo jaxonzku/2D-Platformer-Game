@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDeath : MonoBehaviour
 
 {
+    public HealthController healthController;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collison");
@@ -13,7 +14,9 @@ public class PlayerDeath : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() != null)
         {
             Debug.Log("player dead");
-            SceneManager.LoadScene(0);
+
+            healthController.health = 0;
+            /*SceneManager.LoadScene(0);*/
         }
 
     }

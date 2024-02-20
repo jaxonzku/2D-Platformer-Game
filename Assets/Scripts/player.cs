@@ -20,10 +20,11 @@ public class Player : MonoBehaviour
     public float jump;
     private string groundTag = "platform";
     public ScoreController scoreController;
+    public GameOverController gameOverController;
 
 
 
-    void Awake()
+    void Awake()    
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -126,12 +127,9 @@ public class Player : MonoBehaviour
     public void KillPlayer()
     {
         Debug.Log("player Dead");
-        ReloadScene();
+        gameOverController.PlayerDied();
 
     }
 
-    private void ReloadScene()
-    {
-        SceneManager.LoadScene(0);
-    }
+
 }

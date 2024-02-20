@@ -12,6 +12,7 @@ public class HealthController : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public GameOverController gameOverController;
 
     void Update()
     {
@@ -45,7 +46,9 @@ public class HealthController : MonoBehaviour
         if (health == 0)
         {
             Debug.Log("reducing h");
-            SceneManager.LoadScene(0);
+            gameOverController.PlayerDied();
+            /*SceneManager.LoadScene(0);*/
+
         }
 
     }
