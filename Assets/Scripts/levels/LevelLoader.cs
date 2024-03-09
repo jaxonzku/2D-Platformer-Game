@@ -14,13 +14,26 @@ public class LevelLoader : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(onClick);
-
-        
     }
 
     private void onClick()
     {
-        SceneManager.LoadScene(LevelName);
+
+        LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
+        Debug.Log("levelsatus" + levelStatus +"levelname :"+LevelName);
+        switch (levelStatus)
+        {
+            case LevelStatus.Locked:
+                Debug.Log("THE LEVEL IS LOCKED");
+                break;
+            case LevelStatus.Unlocked:
+                SceneManager.LoadScene(LevelName);
+                break;
+            case LevelStatus.Completed:
+                SceneManager.LoadScene(LevelName);
+                break;
+        }
+      
         
     }
 
