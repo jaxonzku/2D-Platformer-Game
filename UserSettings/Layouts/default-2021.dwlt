@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 120
+  controlID: 116
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 117
+  controlID: 113
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 118
+  controlID: 114
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 119
+  controlID: 115
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -824,9 +824,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 46.673466
     speed: 2
-    m_Value: 10
+    m_Value: 46.673466
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -884,20 +884,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: e266ffffec68ffff306cffff2a6fffffcc70fffff672ffff7476ffff1c78ffff8478ffff4279ffffb079ffffd27affff4a7bffff5a7cffffe47dffffda83ffff3e85ffff328dffff348dffff368dffff508effff0690ffff0892ffff7492ffffc292ffff3293ffffe093ffff7499ffff8a9affff1c9cffff729cffff849dffff129effffa69effff9ca1ffff18aaffffacabffff6aafffff22b0ffffd0b0ffff1cb1ffff60b3ffffc8b4ffff1ab5ffff66b5ffff0ec2ffff10c2ffff12c2ffff50cdffff38d1fffffad1ffff26e3ffffeee8ffff2cfbfffff4ffffffba520000f65200000653000032530000469100005691000082910000b09700001e980000929c0000009d0000929d0000fe9d0000a2a00000c8a0000010a1000054b100007ab1000098b10000beb30000f8b3000002ba000028ba00003cba00007eba000002bb000028bb00003cbb0000e8bb000018bc00003ebc0000a6bc0000eabc0000e2c50000b6c90000dcc90000ccca00009ecb0000f6cb00009ecc0000f6ce0000d6cf00008ad1000032d200008ad3000032d40000c8da0000a8db00005edd000030de0000c8e00000c8e1000092e70000b8e7000030e800003ae80000e0f30000ecf3000010f4000082f400008ef40000c0f4000056fc00007cfc0000fcfc0000d6fe0000b6ff00001600010058000100f600010098020100360301008e0401003605010070100100a0100100e21001001211010050110100ca110100da1101000612010090120100ac120100b61b0100e21b0100
+      m_SelectedIDs: 7e800000
+      m_LastClickedID: 32894
+      m_ExpandedIDs: 60f8ffffb8f8ffff0ef9ffff2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: LevelManager
-        m_OriginalName: LevelManager
+        m_Name: Canvas
+        m_OriginalName: Canvas
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 72624
+        m_UserData: 21302
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -951,37 +951,37 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/levels
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/levels
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jackson\Desktop\UNITY\2D-Platformer-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 24}
-    m_SelectedIDs: dc550000
-    m_LastClickedID: 21980
-    m_ExpandedIDs: 0000000076540000785400007a5400007c5400007e540000805400008254000084540000865400008854000080640000ae6c0000b875000000ca9a3b
+    m_SelectedIDs: 8e540000
+    m_LastClickedID: 21646
+    m_ExpandedIDs: 000000007a5400007c5400007e54000080540000825400008454000086540000885400008a5400008c5400008e540000905400009254000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Level
-      m_OriginalName: Level
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 29230
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_SearchString: 
@@ -995,7 +995,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000076540000785400007a5400007c5400007e5400008054000082540000845400008654000088540000
+    m_ExpandedIDs: 000000007a5400007c5400007e54000080540000825400008454000086540000885400008a5400008c5400008e5400009054000092540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1020,8 +1020,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b01b0100
-    m_LastClickedInstanceID: 72624
+    m_SelectedInstanceIDs: 7e800000
+    m_LastClickedInstanceID: 32894
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000087d000000760000c464000006700000
     m_RenameOverlay:
