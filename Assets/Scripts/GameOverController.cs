@@ -8,6 +8,7 @@ public class GameOverController : MonoBehaviour
 {
     public Button Restartbutton;
     public Button Quitbutton;
+    public Animator animator;
 
 
     private void Awake()
@@ -16,10 +17,12 @@ public class GameOverController : MonoBehaviour
      Quitbutton.onClick.AddListener(LobbyScene);
 
     }
-
+  
     public void PlayerDied()
     {
+       
         gameObject.SetActive(true);
+
     }
     private void ReloadScene()
     {

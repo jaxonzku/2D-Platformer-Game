@@ -9,6 +9,7 @@ public class LevelCompletecontroller : MonoBehaviour
     public GameObject banner;
     public Button Restartbutton;
     public Button HomeButton;
+    public GameObject Explosion;
 
     private void Awake()
     {
@@ -26,6 +27,18 @@ public class LevelCompletecontroller : MonoBehaviour
 
 
     }
+    private IEnumerator DelayedFunctionCall(float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // Call the example function after the delay
+        Debug.Log("calling after delay");
+
+        LevelManager.Instance.MarkCurrentLevelComplete();
+        banner.GetComponentInChildren<LevelCompleteUi>().gameObject.SetActive(true);
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,15 +48,8 @@ public class LevelCompletecontroller : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() != null)
         {
             Debug.Log("Level Complete");
-            LevelManager.Instance.MarkCurrentLevelComplete();
-            Debug.Log("flaf1");
-            banner.GetComponentInChildren<LevelCompleteUi>().gameObject.SetActive(true);
-
-            
-        
-
-
-        }
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            StartCoroutine(DelayedFunctionCall(1f));  }
 
     }
 }

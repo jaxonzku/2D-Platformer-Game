@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private static LevelManager instance;
     public static LevelManager Instance { get { return instance; } }
     public string Level1;
+    public GameObject Explosion;
 
     public string[] Levels;
 
@@ -65,8 +66,11 @@ public class LevelManager : MonoBehaviour
     }
 
     public void MarkCurrentLevelComplete() {
+
+
         Debug.Log("hit");
-       Scene scene = SceneManager.GetActiveScene();
+   
+        Scene scene = SceneManager.GetActiveScene();
        SetLevelStatus(scene.name, LevelStatus.Completed);
         /*       int nextSceneIndex=scene.buildIndex + 1;
               Scene nextScene = SceneManager.GetSceneByBuildIndex(nextSceneIndex);

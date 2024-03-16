@@ -421,7 +421,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -20.3, y: 0}
@@ -465,6 +465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthController: {fileID: 2141473061}
+  PlayerController: {fileID: 6364888890116442451}
+  animator: {fileID: 6364888890116442444}
 --- !u!1 &177985488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2010,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2089,7 +2090,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3796,7 +3796,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4496,7 +4495,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4515,6 +4513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restartbutton: {fileID: 1748213283}
   Quitbutton: {fileID: 1971615046}
+  animator: {fileID: 6364888890116442444}
 --- !u!1 &1704358479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,6 +5194,8 @@ MonoBehaviour:
   banner: {fileID: 1014952532}
   Restartbutton: {fileID: 350040194}
   HomeButton: {fileID: 1704358481}
+  Explosion: {fileID: 2662073542448144853, guid: 1752e24f06c753e4987230482762ed61,
+    type: 3}
 --- !u!61 &1987519101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5435,7 +5436,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -5461,6 +5461,10 @@ MonoBehaviour:
   fullHeart: {fileID: 1209770916, guid: 2d82dfa6a7b64ad42a33d6f6fecbfbdd, type: 3}
   emptyHeart: {fileID: 1108822243, guid: 2d82dfa6a7b64ad42a33d6f6fecbfbdd, type: 3}
   gameOverController: {fileID: 1655792437}
+  animator: {fileID: 6364888890116442444}
+  Explosion: {fileID: 2662073542448144853, guid: 22545edb3f4d53a4b808eb924fa13755,
+    type: 3}
+  player: {fileID: 6364888890116442451}
 --- !u!1 &2144592890
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,6 +5788,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  Explosion: {fileID: 2662073542448144853, guid: 1752e24f06c753e4987230482762ed61,
+    type: 3}
 --- !u!61 &6364888890116442453
 BoxCollider2D:
   m_ObjectHideFlags: 0

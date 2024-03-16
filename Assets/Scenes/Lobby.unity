@@ -1289,6 +1289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level1: Level1
+  Explosion: {fileID: 2662073542448144853, guid: 1752e24f06c753e4987230482762ed61,
+    type: 3}
   Levels:
   - Level1
   - Level2
@@ -2032,7 +2034,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0

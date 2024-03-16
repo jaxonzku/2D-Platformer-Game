@@ -13,6 +13,9 @@ public class HealthController : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public GameOverController gameOverController;
+    public Animator animator;
+    public GameObject Explosion;
+    public Player player;
 
     void Update()
     {
@@ -40,14 +43,25 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    private IEnumerator DelayedFunctionCall(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameOverController.PlayerDied();
+
+
+
+    }
+
     public void Reducehealth()
     {
         health = health-1;
         if (health == 0)
         {
             Debug.Log("reducing h");
-            gameOverController.PlayerDied();
             /*SceneManager.LoadScene(0);*/
+            animator.SetBool("dead", true);
+            Instantiate(Explosion, player.transform.position, Quaternion.identity);
+            StartCoroutine(DelayedFunctionCall(2f));
 
         }
 

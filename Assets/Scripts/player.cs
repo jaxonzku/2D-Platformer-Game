@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public float castDistance;
     public Vector2 boxSize;
     public LayerMask groundLayer;
+    public GameObject Explosion;
 
     void Awake()
     {
@@ -130,11 +131,14 @@ public class Player : MonoBehaviour
     {
 
         scoreController.IncrementScore(10);
+        Instantiate(Explosion, transform.position, Quaternion.identity);
     }
 
     public void KillPlayer()
     {
+      
         gameOverController.PlayerDied();
+       
 
     }
 
