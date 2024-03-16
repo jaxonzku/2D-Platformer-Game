@@ -7,33 +7,31 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public Animator animator;
-    private float crouchOffset = 0.5f;
-    private float crouchSize = 0.8f;
-    private float jumpOffset = 1.4f;
-    private float jumpSize = 1.1f;
-    private BoxCollider2D playerCollider;
-    private BoxCollider2D orginalCollider;
+
+    public float jumpOffset = 1.4f;
+  public float jumpSize = 1.1f;
+  private BoxCollider2D playerCollider;
 
     private Vector2 originalSize;
     public float speed;
     private Rigidbody2D rb2d;
     public float jump;
-    private string groundTag = "platform";
+
     public ScoreController scoreController;
     public GameOverController gameOverController;
 
+    public Vector2 force = new Vector2(0f, 500f);
+    public float castDistance;
+    public Vector2 boxSize;
+    public LayerMask groundLayer;
 
-
-    void Awake()    
+    void Awake()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        Debug.Log("awake");
     }
-
     void Start()
     {
-        playerCollider = GetComponent<BoxCollider2D>();
-        orginalCollider = playerCollider;
-        Debug.Log(playerCollider.offset.x);
 
     }
 
@@ -41,18 +39,18 @@ public class Player : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        PlayerMovementAnimation(horizontal,vertical);
-        MoveCharacter(horizontal,vertical);
+        PlayerMovementAnimation(horizontal, vertical);
+        MoveCharacter(horizontal, vertical);
+        IsGrounded();
     }
-
-    private void PlayerMovementAnimation(float horizontal,float vertical)
+    private void PlayerMovementAnimation(float horizontal, float vertical)
     {
         Vector3 scale = transform.localScale;
         animator.SetFloat("speed", Mathf.Abs(horizontal));
 
         if (horizontal < 0)
         {
-            scale.x = -1f * Mathf.Abs(scale.x);
+            scale.x = -1f* Mathf.Abs(scale.x);
         }
         else if (horizontal > 0)
         {
@@ -62,63 +60,68 @@ public class Player : MonoBehaviour
         if (vertical < 0)
         {
             animator.SetBool("crouch", true);
-            playerCollider.offset = new Vector2(playerCollider.offset.x, crouchOffset);
-            playerCollider.size = new Vector2(playerCollider.size.x, crouchSize);
 
         }
-        else if (vertical > 0 &&IsGrounded())
+  /*      else if (vertical > 0 && !IsGrounded())
         {
-
             animator.SetBool("jump", true);
-            playerCollider.offset = new Vector2(playerCollider.offset.x, jumpOffset);
-            playerCollider.size = new Vector2(playerCollider.size.x, jumpSize);
 
-        }
+        }*/
         else
         {
             animator.SetBool("crouch", false);
-            animator.SetBool("jump", false);
-            playerCollider.offset = new Vector2(playerCollider.offset.x, 1.0f);
-            playerCollider.size = new Vector2(playerCollider.size.x, 2.0f);
+        /*    animator.SetBool("jump", false);*/
 
         }
         transform.localScale = scale;
 
     }
-    private void MoveCharacter(float horizontal,float vertical)
-    {
-        Vector3 position = transform.position;
-        position.x = position.x + horizontal * speed * Time.deltaTime;
-        transform.position=position;
-
-        if(vertical> 0 && IsGrounded())
-        {
-           
-         rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
-
-            
-        }
-
-    }
 
     bool IsGrounded()
     {
-        // Check if the player is grounded based on the tag of the ground objects
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(playerCollider.bounds.center, playerCollider.bounds.size, 0f);
-
-        foreach (Collider2D collider in colliders)
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
-            if (collider.CompareTag(groundTag))
-            {
-                Debug.Log("grounded true");
-                return true;
-            }
+            Debug.Log("is grounded");
+            rb2d.gravityScale = 1f;
+            return true;
         }
-        Debug.Log("grounded false");
-        return false;
+        else
+        {
+            Debug.Log("not grounded");
+            rb2d.gravityScale = 2f;
+            return false;
+        }
+
     }
 
-    public  void KeyPickUp()
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(transform.position - transform.up * castDistance, boxSize);
+    }
+
+    private void MoveCharacter(float horizontal, float vertical)
+    {
+        Vector3 position = transform.position;
+        position.x = position.x + horizontal * speed * Time.deltaTime;
+        transform.position = position;
+
+        if (vertical > 0 && IsGrounded())
+        {
+
+            Debug.Log("jumping" + force * Time.deltaTime);
+            animator.SetBool("jump", true);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
+
+        }
+        else
+        {
+            animator.SetBool("jump", false);
+
+        }
+
+    }
+
+    public void KeyPickUp()
     {
         Debug.Log("key picked up");
         scoreController.IncrementScore(10);
@@ -130,6 +133,5 @@ public class Player : MonoBehaviour
         gameOverController.PlayerDied();
 
     }
-
 
 }
