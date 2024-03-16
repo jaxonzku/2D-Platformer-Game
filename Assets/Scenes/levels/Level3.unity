@@ -3812,6 +3812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deaf09b673794b34d9a0e519213a2546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Restartbutton: {fileID: 350040194}
+  Quitbutton: {fileID: 1704358481}
 --- !u!1 &1068900075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3328471846306010773, guid: e5ada3c22f91ba74ebacfd1583b36b46,
@@ -5660,12 +5662,12 @@ PrefabInstance:
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.3
+      value: -5.4
       objectReference: {fileID: 0}
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.88
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}

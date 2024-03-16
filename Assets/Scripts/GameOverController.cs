@@ -26,7 +26,8 @@ public class GameOverController : MonoBehaviour
     }
     private void ReloadScene()
     {
-        SceneManager.LoadScene(1);
+        Debug.Log("clicking");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void LobbyScene()
     {
