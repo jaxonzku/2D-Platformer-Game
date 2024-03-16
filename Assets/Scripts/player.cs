@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     public Animator animator;
 
     public float jumpOffset = 1.4f;
-  public float jumpSize = 1.1f;
-  private BoxCollider2D playerCollider;
+    public float jumpSize = 1.1f;
+    private BoxCollider2D playerCollider;
 
     private Vector2 originalSize;
     public float speed;
@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        Debug.Log("awake");
     }
     void Start()
     {
@@ -50,44 +49,54 @@ public class Player : MonoBehaviour
 
         if (horizontal < 0)
         {
-            scale.x = -1f* Mathf.Abs(scale.x);
+            scale.x = Mathf.Abs(scale.x) * -1f;
+            animator.SetBool("running", true);
         }
         else if (horizontal > 0)
         {
             scale.x = Mathf.Abs(scale.x);
+            animator.SetBool("running", true);
+        }
+        else {
+            animator.SetBool("running", false);
         }
 
         if (vertical < 0)
         {
+            /*Debug.Log("verticlal "+vertical);*/
             animator.SetBool("crouch", true);
-
+            animator.SetBool("jump", false); // Reset jump animation when crouching
         }
-  /*      else if (vertical > 0 && !IsGrounded())
+        else if (vertical > 0)
         {
+            animator.SetBool("crouch", false);
             animator.SetBool("jump", true);
-
-        }*/
+            animator.SetBool("running", false);
+        }
         else
         {
             animator.SetBool("crouch", false);
-        /*    animator.SetBool("jump", false);*/
-
         }
-        transform.localScale = scale;
 
+        transform.localScale = scale;
     }
+
 
     bool IsGrounded()
     {
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
-            Debug.Log("is grounded");
+
             rb2d.gravityScale = 1f;
+            animator.SetBool("jump", false);
+
+            /*animator.SetBool("jump", false)*/
+
             return true;
         }
         else
         {
-            Debug.Log("not grounded");
+
             rb2d.gravityScale = 2f;
             return false;
         }
@@ -108,28 +117,23 @@ public class Player : MonoBehaviour
         if (vertical > 0 && IsGrounded())
         {
 
-            Debug.Log("jumping" + force * Time.deltaTime);
-            animator.SetBool("jump", true);
+            Debug.Log("setting jump true",animator);
+/*            animator.SetBool("jump", true)*/
             rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
 
         }
-        else
-        {
-            animator.SetBool("jump", false);
-
-        }
+    
 
     }
 
     public void KeyPickUp()
     {
-        Debug.Log("key picked up");
+
         scoreController.IncrementScore(10);
     }
 
     public void KillPlayer()
     {
-        Debug.Log("player Dead");
         gameOverController.PlayerDied();
 
     }
