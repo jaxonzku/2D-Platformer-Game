@@ -43,13 +43,9 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayedFunctionCall(float delay)
+    private void DelayedFunctionCallAfterPlayerDied()
     {
-        yield return new WaitForSeconds(delay);
         gameOverController.PlayerDied();
-
-
-
     }
 
     public void Reducehealth()
@@ -57,11 +53,9 @@ public class HealthController : MonoBehaviour
         health = health-1;
         if (health == 0)
         {
-            Debug.Log("reducing h");
-            /*SceneManager.LoadScene(0);*/
-            animator.SetBool("dead", true);
+            animator.SetBool(StringConstants.animatePlayerDeath, true);
             Instantiate(Explosion, player.transform.position, Quaternion.identity);
-            StartCoroutine(DelayedFunctionCall(2f));
+            Invoke("DelayedFunctionCallAfterPlayerDied", 2f);
 
         }
 

@@ -9,9 +9,7 @@ public class GameOverController : MonoBehaviour
 
     public void PlayerDied()
     {
-
         gameObject.SetActive(true);
-
     }
     public void ReloadScene()
     {

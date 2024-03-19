@@ -1170,13 +1170,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1987519100}
+        m_TargetAssemblyTypeName: LevelCompletecontroller, Assembly-CSharp
+        m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1813,7 +1813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -22.2, y: 14.530045}
+  m_AnchoredPosition: {x: -22.200012, y: 14.530029}
   m_SizeDelta: {x: -610, y: -403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685426491
@@ -2010,6 +2010,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2090,6 +2091,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3796,6 +3798,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3812,8 +3815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deaf09b673794b34d9a0e519213a2546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Restartbutton: {fileID: 350040194}
-  Quitbutton: {fileID: 1704358481}
 --- !u!1 &1068900075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3328471846306010773, guid: e5ada3c22f91ba74ebacfd1583b36b46,
@@ -4497,6 +4498,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4513,9 +4515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac6afe7df4ebf84b9a9efee409afbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Restartbutton: {fileID: 1748213283}
-  Quitbutton: {fileID: 1971615046}
-  animator: {fileID: 6364888890116442444}
 --- !u!1 &1704358479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,13 +4599,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1987519100}
+        m_TargetAssemblyTypeName: LevelCompletecontroller, Assembly-CSharp
+        m_MethodName: HomeScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4734,13 +4733,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1655792437}
+        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
+        m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5113,18 +5112,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1655792437}
+        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
+        m_MethodName: LobbyScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1971615047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5194,8 +5193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   banner: {fileID: 1014952532}
-  Restartbutton: {fileID: 350040194}
-  HomeButton: {fileID: 1704358481}
   Explosion: {fileID: 2662073542448144853, guid: 1752e24f06c753e4987230482762ed61,
     type: 3}
 --- !u!61 &1987519101
@@ -5438,6 +5435,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -5662,12 +5660,12 @@ PrefabInstance:
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7928542408710382386, guid: a63226b1ebdee974b91b3e6ac05be324,
         type: 3}

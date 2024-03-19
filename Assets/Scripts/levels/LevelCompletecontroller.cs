@@ -7,32 +7,20 @@ using UnityEngine.UI;
 public class LevelCompletecontroller : MonoBehaviour
 {
     public GameObject banner;
-    public Button Restartbutton;
-    public Button HomeButton;
     public GameObject Explosion;
 
-    private void Awake()
-    {
-        Restartbutton.onClick.AddListener(ReloadScene);
-        HomeButton.onClick.AddListener(HomeScreen);
-
-    }
-    private void ReloadScene()
+    public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    private void HomeScreen()
+    public void HomeScreen()
     {
         SceneManager.LoadScene(0);
-
-
     }
-    private IEnumerator DelayedFunctionCall(float delay)
+    private void DelayedFunctionCallAfterLevelcomplete()
     {
-        yield return new WaitForSeconds(delay);
         LevelManager.Instance.MarkCurrentLevelComplete();
         banner.GetComponentInChildren<LevelCompleteUi>().gameObject.SetActive(true);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,7 +28,8 @@ public class LevelCompletecontroller : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() != null)
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
-            StartCoroutine(DelayedFunctionCall(1f));  }
+            Invoke("DelayedFunctionCallAfterLevelcomplete", 1f);
+        }
 
     }
 }

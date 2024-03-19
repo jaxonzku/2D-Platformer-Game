@@ -6,17 +6,7 @@ using UnityEngine.UI;
 
 public class LevelCompleteUi : MonoBehaviour
 {
-    public Button Restartbutton;
-    public Button Quitbutton;
 
-
-
-    private void Awake()
-    {
-        Restartbutton.onClick.AddListener(ReloadScene);
-        Quitbutton.onClick.AddListener(LobbyScene);
-
-    }
     private void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
