@@ -20,11 +20,9 @@ public class LevelLoader : MonoBehaviour
     {
 
         LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
-        Debug.Log("levelsatus" + levelStatus +"levelname :"+LevelName);
         switch (levelStatus)
         {
             case LevelStatus.Locked:
-                Debug.Log("THE LEVEL IS LOCKED");
                 SoundManager.Instance.Play(Sounds.ButtonClick);
                 break;
             case LevelStatus.Unlocked:

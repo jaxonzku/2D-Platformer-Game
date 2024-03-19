@@ -29,12 +29,7 @@ public class LevelCompletecontroller : MonoBehaviour
     }
     private IEnumerator DelayedFunctionCall(float delay)
     {
-        // Wait for the specified delay
         yield return new WaitForSeconds(delay);
-
-        // Call the example function after the delay
-        Debug.Log("calling after delay");
-
         LevelManager.Instance.MarkCurrentLevelComplete();
         banner.GetComponentInChildren<LevelCompleteUi>().gameObject.SetActive(true);
 
@@ -42,12 +37,8 @@ public class LevelCompletecontroller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("collison");
-
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            Debug.Log("Level Complete");
             Instantiate(Explosion, transform.position, Quaternion.identity);
             StartCoroutine(DelayedFunctionCall(1f));  }
 

@@ -19,14 +19,10 @@ public class LevelCompleteUi : MonoBehaviour
     }
     private void ReloadScene()
     {
-        Debug.Log("clicking");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void LobbyScene()
     {
-        Debug.Log("home click");
         SceneManager.LoadScene(0);
-
-
     }
 }
